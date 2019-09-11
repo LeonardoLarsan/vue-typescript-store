@@ -1,18 +1,38 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <div>
+      <p>Count: {{ getCount }}</p>
+      <button @click="setCount(count + 1);">+ 1</button>
+      <button @click="setCount(count - 1);">- 1</button>
+    </div>
+    <div>
+      <p>Count2: {{ count2 }}</p>
+      <button @click="setCount2(count2 + 1);">+ 1</button>
+      <button @click="setCount2(count2 - 1);">- 1</button>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+<script script lang="ts">
+import Vue from "vue";
+import { store, actions, getters } from "../store";
+import {store2, actions2} from "../store2";
 
 export default Vue.extend({
-  name: 'home',
-  components: {
-    HelloWorld,
+  computed: {
+    getCount() {
+      return getters.getCount();
+    },
+    count() {
+      return store.count;
+    },
+    count2(){
+      return store2.count
+    }
   },
+  methods: {
+    setCount: actions.setCount,
+    setCount2: actions2.setCount
+  }
 });
 </script>

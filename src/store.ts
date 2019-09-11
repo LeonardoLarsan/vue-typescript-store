@@ -1,16 +1,23 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  state: {
-
-  },
-  mutations: {
-
-  },
-  actions: {
-
-  },
+export const store = Vue.observable({
+  count: 0 as number
 });
+
+export const getters = {
+  getCount() {
+    return store.count + 'x'
+  }
+}
+
+const mutations = {
+  setCount(count: number) {
+    store.count = count;
+  }
+};
+
+export const actions = {
+  setCount(count: number){
+    mutations.setCount(count);
+  }
+}
