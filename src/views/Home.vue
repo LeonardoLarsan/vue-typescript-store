@@ -14,9 +14,9 @@
 </template>
 
 <script script lang="ts">
-import Vue from "vue";
-import { store, actions, getters } from "../store";
-import {store2, actions2} from "../store2";
+import Vue from 'vue';
+import { store, actions, getters } from '../store';
+import {store2, actions2} from '../store2';
 
 export default Vue.extend({
   computed: {
@@ -26,13 +26,13 @@ export default Vue.extend({
     count() {
       return store.count;
     },
-    count2(){
-      return store2.count
-    }
+    count2() {
+      return store2.count;
+    },
   },
   methods: {
     setCount: actions.setCount,
-    setCount2: actions2.setCount
-  }
+    setCount2: actions2.setCount,
+  },
 });
 </script>
